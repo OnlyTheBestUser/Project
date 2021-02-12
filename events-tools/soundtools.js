@@ -1,163 +1,128 @@
-/*
- * GDevelop JS Platform
- * Copyright 2013-2016 Florian Rival (Florian.Rival@gmail.com). All rights reserved.
- * This project is released under the MIT License.
- */
-
-/**
- * Class used by events to interact with the soundManager.
- *
- * @memberof gdjs.evtTools
- * @class sound
- * @static
- * @private
- */
-gdjs.evtTools.sound = gdjs.evtTools.sound || {};
-
-gdjs.evtTools.sound.getGlobalVolume = function(runtimeScene) {
-    return runtimeScene.getSoundManager().getGlobalVolume();
-};
-
-gdjs.evtTools.sound.setGlobalVolume = function(runtimeScene, globalVolume) {
-    runtimeScene.getSoundManager().setGlobalVolume(globalVolume);
-};
-
-//Sounds:
-
-gdjs.evtTools.sound.playSound = function(runtimeScene, soundFile, loop, volume, pitch) {
-    runtimeScene.getSoundManager().playSound(soundFile, loop, volume, pitch);
-};
-
-gdjs.evtTools.sound.playSoundOnChannel = function(runtimeScene, soundFile, channel, loop, volume, pitch) {
-    runtimeScene.getSoundManager().playSoundOnChannel(soundFile, channel, loop, volume, pitch);
-};
-
-gdjs.evtTools.sound.stopSoundOnChannel = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    sound && sound.stop();
-};
-
-gdjs.evtTools.sound.pauseSoundOnChannel = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    sound && sound.pause();
-};
-
-gdjs.evtTools.sound.continueSoundOnChannel = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    if (sound && !sound.playing()) sound.play();
-};
-
-gdjs.evtTools.sound.isSoundOnChannelPlaying = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.playing() : false;
-};
-
-gdjs.evtTools.sound.isSoundOnChannelPaused = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.paused() : false;
-};
-
-gdjs.evtTools.sound.isSoundOnChannelStopped = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.stopped() : true;
-};
-
-gdjs.evtTools.sound.getSoundOnChannelVolume = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.volume() * 100 : 100;
-};
-
-gdjs.evtTools.sound.setSoundOnChannelVolume = function(runtimeScene, channel, volume) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    sound && sound.volume(volume / 100);
-};
-
-gdjs.evtTools.sound.getSoundOnChannelPlayingOffset = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.seek() : 0;
-};
-
-gdjs.evtTools.sound.setSoundOnChannelPlayingOffset = function(runtimeScene, channel, playingOffset) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    sound && sound.seek(playingOffset);
-};
-
-gdjs.evtTools.sound.getSoundOnChannelPitch = function(runtimeScene, channel) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    return sound ? sound.getRate() : 1;
-};
-
-gdjs.evtTools.sound.setSoundOnChannelPitch = function(runtimeScene, channel, pitch) {
-    var sound = runtimeScene.getSoundManager().getSoundOnChannel(channel);
-    sound && sound.setRate(pitch);
-};
-
-//Musics:
-
-gdjs.evtTools.sound.playMusic = function(runtimeScene, soundFile, loop, volume, pitch) {
-    runtimeScene.getSoundManager().playMusic(soundFile, loop, volume, pitch);
-};
-
-gdjs.evtTools.sound.playMusicOnChannel = function(runtimeScene, soundFile, channel, loop, volume, pitch) {
-    runtimeScene.getSoundManager().playMusicOnChannel(soundFile, channel, loop, volume, pitch);
-};
-
-gdjs.evtTools.sound.stopMusicOnChannel = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    music && music.stop();
-};
-
-gdjs.evtTools.sound.pauseMusicOnChannel = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    music && music.pause();
-};
-
-gdjs.evtTools.sound.continueMusicOnChannel = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    if (music && !music.playing()) music.play();
-};
-
-gdjs.evtTools.sound.isMusicOnChannelPlaying = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.playing() : false;
-};
-
-gdjs.evtTools.sound.isMusicOnChannelPaused = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.paused() : false;
-};
-
-gdjs.evtTools.sound.isMusicOnChannelStopped = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.stopped() : true;
-};
-
-gdjs.evtTools.sound.getMusicOnChannelVolume = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.volume() * 100 : 100;
-};
-
-gdjs.evtTools.sound.setMusicOnChannelVolume = function(runtimeScene, channel, volume) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    music && music.volume(volume / 100);
-};
-
-gdjs.evtTools.sound.getMusicOnChannelPlayingOffset = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.seek() : 0;
-};
-
-gdjs.evtTools.sound.setMusicOnChannelPlayingOffset = function(runtimeScene, channel, playingOffset) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    music && music.seek(playingOffset);
-};
-
-gdjs.evtTools.sound.getMusicOnChannelPitch = function(runtimeScene, channel) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    return music ? music.getRate() : 1;
-};
-
-gdjs.evtTools.sound.setMusicOnChannelPitch = function(runtimeScene, channel, pitch) {
-    var music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
-    music && music.setRate(pitch);
-};
+var gdjs;
+(function(gdjs2) {
+  let evtTools;
+  (function(evtTools2) {
+    let sound;
+    (function(sound2) {
+      sound2.getGlobalVolume = function(runtimeScene) {
+        return runtimeScene.getSoundManager().getGlobalVolume();
+      };
+      sound2.setGlobalVolume = function(runtimeScene, globalVolume) {
+        runtimeScene.getSoundManager().setGlobalVolume(globalVolume);
+      };
+      sound2.playSound = function(runtimeScene, soundFile, loop, volume, pitch) {
+        runtimeScene.getSoundManager().playSound(soundFile, loop, volume, pitch);
+      };
+      sound2.playSoundOnChannel = function(runtimeScene, soundFile, channel, loop, volume, pitch) {
+        runtimeScene.getSoundManager().playSoundOnChannel(soundFile, channel, loop, volume, pitch);
+      };
+      sound2.stopSoundOnChannel = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        sound3 && sound3.stop();
+      };
+      sound2.pauseSoundOnChannel = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        sound3 && sound3.pause();
+      };
+      sound2.continueSoundOnChannel = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        if (sound3 && !sound3.playing()) {
+          sound3.play();
+        }
+      };
+      sound2.isSoundOnChannelPlaying = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.playing() : false;
+      };
+      sound2.isSoundOnChannelPaused = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.paused() : false;
+      };
+      sound2.isSoundOnChannelStopped = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.stopped() : true;
+      };
+      sound2.getSoundOnChannelVolume = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.volume() * 100 : 100;
+      };
+      sound2.setSoundOnChannelVolume = function(runtimeScene, channel, volume) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        sound3 && sound3.volume(volume / 100);
+      };
+      sound2.getSoundOnChannelPlayingOffset = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.seek() : 0;
+      };
+      sound2.setSoundOnChannelPlayingOffset = function(runtimeScene, channel, playingOffset) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        sound3 && sound3.seek(playingOffset);
+      };
+      sound2.getSoundOnChannelPitch = function(runtimeScene, channel) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        return sound3 ? sound3.getRate() : 1;
+      };
+      sound2.setSoundOnChannelPitch = function(runtimeScene, channel, pitch) {
+        const sound3 = runtimeScene.getSoundManager().getSoundOnChannel(channel);
+        sound3 && sound3.setRate(pitch);
+      };
+      sound2.playMusic = function(runtimeScene, soundFile, loop, volume, pitch) {
+        runtimeScene.getSoundManager().playMusic(soundFile, loop, volume, pitch);
+      };
+      sound2.playMusicOnChannel = function(runtimeScene, soundFile, channel, loop, volume, pitch) {
+        runtimeScene.getSoundManager().playMusicOnChannel(soundFile, channel, loop, volume, pitch);
+      };
+      sound2.stopMusicOnChannel = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        music && music.stop();
+      };
+      sound2.pauseMusicOnChannel = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        music && music.pause();
+      };
+      sound2.continueMusicOnChannel = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        if (music && !music.playing()) {
+          music.play();
+        }
+      };
+      sound2.isMusicOnChannelPlaying = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.playing() : false;
+      };
+      sound2.isMusicOnChannelPaused = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.paused() : false;
+      };
+      sound2.isMusicOnChannelStopped = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.stopped() : true;
+      };
+      sound2.getMusicOnChannelVolume = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.volume() * 100 : 100;
+      };
+      sound2.setMusicOnChannelVolume = function(runtimeScene, channel, volume) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        music && music.volume(volume / 100);
+      };
+      sound2.getMusicOnChannelPlayingOffset = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.seek() : 0;
+      };
+      sound2.setMusicOnChannelPlayingOffset = function(runtimeScene, channel, playingOffset) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        music && music.seek(playingOffset);
+      };
+      sound2.getMusicOnChannelPitch = function(runtimeScene, channel) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        return music ? music.getRate() : 1;
+      };
+      sound2.setMusicOnChannelPitch = function(runtimeScene, channel, pitch) {
+        const music = runtimeScene.getSoundManager().getMusicOnChannel(channel);
+        music && music.setRate(pitch);
+      };
+    })(sound = evtTools2.sound || (evtTools2.sound = {}));
+  })(evtTools = gdjs2.evtTools || (gdjs2.evtTools = {}));
+})(gdjs || (gdjs = {}));
+//# sourceMappingURL=soundtools.js.map
