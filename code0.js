@@ -5,6 +5,8 @@ gdjs.GameCode.GDPlayerShipObjects1= [];
 gdjs.GameCode.GDPlayerShipObjects2= [];
 gdjs.GameCode.GDEngineObjects1= [];
 gdjs.GameCode.GDEngineObjects2= [];
+gdjs.GameCode.GDNewObjectObjects1= [];
+gdjs.GameCode.GDNewObjectObjects2= [];
 
 gdjs.GameCode.conditionTrue_0 = {val:false};
 gdjs.GameCode.condition0IsTrue_0 = {val:false};
@@ -181,6 +183,8 @@ gdjs.GameCode.GDPlayerShipObjects1.length = 0;
 gdjs.GameCode.GDPlayerShipObjects2.length = 0;
 gdjs.GameCode.GDEngineObjects1.length = 0;
 gdjs.GameCode.GDEngineObjects2.length = 0;
+gdjs.GameCode.GDNewObjectObjects1.length = 0;
+gdjs.GameCode.GDNewObjectObjects2.length = 0;
 
 gdjs.GameCode.eventsList0(runtimeScene);
 return;
