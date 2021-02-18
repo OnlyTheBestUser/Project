@@ -233,7 +233,7 @@ if (gdjs.GameCode.condition1IsTrue_0.val) {
 /* Reuse gdjs.GameCode.GDPickupObjects1 */
 {gdjs.evtTools.linkedObjects.linkObjects(runtimeScene, (gdjs.GameCode.GDPickupObjects1.length !== 0 ? gdjs.GameCode.GDPickupObjects1[0] : null), (gdjs.GameCode.GDAsteroidObjects1.length !== 0 ? gdjs.GameCode.GDAsteroidObjects1[0] : null));
 }{for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDAsteroidObjects1[i].putAroundObject((gdjs.GameCode.GDPickupObjects1.length !== 0 ? gdjs.GameCode.GDPickupObjects1[0] : null), 0, 5);
+    gdjs.GameCode.GDAsteroidObjects1[i].addForceTowardObject((gdjs.GameCode.GDPickupObjects1.length !== 0 ? gdjs.GameCode.GDPickupObjects1[0] : null), 100, 0);
 }
 }}
 
