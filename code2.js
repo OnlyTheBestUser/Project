@@ -38,7 +38,7 @@ gdjs.Failed_32ScreenCode.condition0IsTrue_0.val = gdjs.evtTools.input.isKeyPress
 {
 gdjs.copyArray(runtimeScene.getObjects("Score_Text"), gdjs.Failed_32ScreenCode.GDScore_95TextObjects1);
 {for(var i = 0, len = gdjs.Failed_32ScreenCode.GDScore_95TextObjects1.length ;i < len;++i) {
-    gdjs.Failed_32ScreenCode.GDScore_95TextObjects1[i].setString("You Scored: $" + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("GlobalScoreVar")));
+    gdjs.Failed_32ScreenCode.GDScore_95TextObjects1[i].setString("You Scored: $" + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().get("PlayerMoney")));
 }
 }}
 
