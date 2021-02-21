@@ -543,6 +543,7 @@ gdjs.GameCode.conditionTrue_1.val = true && gdjs.GameCode.condition0IsTrue_1.val
 }
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 /* Reuse gdjs.GameCode.GDAsteroidObjects1 */
+gdjs.copyArray(runtimeScene.getObjects("Engine"), gdjs.GameCode.GDEngineObjects1);
 /* Reuse gdjs.GameCode.GDPickupObjects1 */
 gdjs.copyArray(runtimeScene.getObjects("PlayerShip"), gdjs.GameCode.GDPlayerShipObjects1);
 {for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
@@ -551,29 +552,13 @@ gdjs.copyArray(runtimeScene.getObjects("PlayerShip"), gdjs.GameCode.GDPlayerShip
 }{for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
     gdjs.GameCode.GDAsteroidObjects1[i].clearForces();
 }
+}{for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
+    gdjs.GameCode.GDAsteroidObjects1[i].addPolarForce((( gdjs.GameCode.GDPickupObjects1.length === 0 ) ? (( gdjs.GameCode.GDEngineObjects1.length === 0 ) ? (( gdjs.GameCode.GDPlayerShipObjects1.length === 0 ) ? 0 :gdjs.GameCode.GDPlayerShipObjects1[0].getAverageForce().getAngle()) :gdjs.GameCode.GDEngineObjects1[0].getAverageForce().getAngle()) :gdjs.GameCode.GDPickupObjects1[0].getAverageForce().getAngle()), (( gdjs.GameCode.GDPickupObjects1.length === 0 ) ? (( gdjs.GameCode.GDEngineObjects1.length === 0 ) ? (( gdjs.GameCode.GDPlayerShipObjects1.length === 0 ) ? 0 :gdjs.GameCode.GDPlayerShipObjects1[0].getAverageForce().getLength()) :gdjs.GameCode.GDEngineObjects1[0].getAverageForce().getLength()) :gdjs.GameCode.GDPickupObjects1[0].getAverageForce().getLength()), 1);
+}
 }{for(var i = 0, len = gdjs.GameCode.GDPickupObjects1.length ;i < len;++i) {
     gdjs.GameCode.GDPickupObjects1[i].setAnimationFrame(0);
 }
 }{runtimeScene.getVariables().getFromIndex(1).setNumber(1);
-}}
-
-}
-
-
-{
-
-
-gdjs.GameCode.condition0IsTrue_0.val = false;
-{
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isScrollingUp(runtimeScene);
-}if (gdjs.GameCode.condition0IsTrue_0.val) {
-gdjs.copyArray(runtimeScene.getObjects("Asteroid"), gdjs.GameCode.GDAsteroidObjects1);
-gdjs.copyArray(runtimeScene.getObjects("Engine"), gdjs.GameCode.GDEngineObjects1);
-gdjs.copyArray(runtimeScene.getObjects("Pickup"), gdjs.GameCode.GDPickupObjects1);
-gdjs.copyArray(runtimeScene.getObjects("PlayerShip"), gdjs.GameCode.GDPlayerShipObjects1);
-{for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDAsteroidObjects1[i].addPolarForce((( gdjs.GameCode.GDPickupObjects1.length === 0 ) ? (( gdjs.GameCode.GDEngineObjects1.length === 0 ) ? (( gdjs.GameCode.GDPlayerShipObjects1.length === 0 ) ? 0 :gdjs.GameCode.GDPlayerShipObjects1[0].getAverageForce().getAngle()) :gdjs.GameCode.GDEngineObjects1[0].getAverageForce().getAngle()) :gdjs.GameCode.GDPickupObjects1[0].getAverageForce().getAngle()), (( gdjs.GameCode.GDPickupObjects1.length === 0 ) ? (( gdjs.GameCode.GDEngineObjects1.length === 0 ) ? (( gdjs.GameCode.GDPlayerShipObjects1.length === 0 ) ? 0 :gdjs.GameCode.GDPlayerShipObjects1[0].getAverageForce().getLength()) :gdjs.GameCode.GDEngineObjects1[0].getAverageForce().getLength()) :gdjs.GameCode.GDPickupObjects1[0].getAverageForce().getLength()), 1);
-}
 }}
 
 }
