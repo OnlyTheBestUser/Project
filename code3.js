@@ -15,6 +15,11 @@ gdjs.Win_32ScreenCode.GDRestart_95TextObjects2= [];
 gdjs.Win_32ScreenCode.conditionTrue_0 = {val:false};
 gdjs.Win_32ScreenCode.condition0IsTrue_0 = {val:false};
 gdjs.Win_32ScreenCode.condition1IsTrue_0 = {val:false};
+gdjs.Win_32ScreenCode.condition2IsTrue_0 = {val:false};
+gdjs.Win_32ScreenCode.conditionTrue_1 = {val:false};
+gdjs.Win_32ScreenCode.condition0IsTrue_1 = {val:false};
+gdjs.Win_32ScreenCode.condition1IsTrue_1 = {val:false};
+gdjs.Win_32ScreenCode.condition2IsTrue_1 = {val:false};
 
 
 gdjs.Win_32ScreenCode.eventsList0 = function(runtimeScene) {
@@ -33,10 +38,17 @@ gdjs.Win_32ScreenCode.eventsList0 = function(runtimeScene) {
 
 
 gdjs.Win_32ScreenCode.condition0IsTrue_0.val = false;
+gdjs.Win_32ScreenCode.condition1IsTrue_0.val = false;
 {
-gdjs.Win_32ScreenCode.condition0IsTrue_0.val = gdjs.evtTools.input.isKeyPressed(runtimeScene, "Space");
-}if (gdjs.Win_32ScreenCode.condition0IsTrue_0.val) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", false);
+gdjs.Win_32ScreenCode.condition0IsTrue_0.val = gdjs.evtTools.input.wasKeyReleased(runtimeScene, "Space");
+}if ( gdjs.Win_32ScreenCode.condition0IsTrue_0.val ) {
+{
+{gdjs.Win_32ScreenCode.conditionTrue_1 = gdjs.Win_32ScreenCode.condition1IsTrue_0;
+gdjs.Win_32ScreenCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8066316);
+}
+}}
+if (gdjs.Win_32ScreenCode.condition1IsTrue_0.val) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Start Screen", false);
 }}
 
 }
