@@ -124,7 +124,7 @@ gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects = Hashtable.newFrom({"Asteroid": gdjs.GameCode.GDAsteroidObjects1});gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDBackgroundObjects1Objects = Hashtable.newFrom({"Background": gdjs.GameCode.GDBackgroundObjects1});gdjs.GameCode.eventsList4 = function(runtimeScene) {
+};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects = Hashtable.newFrom({"Asteroid": gdjs.GameCode.GDAsteroidObjects1});gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDBackgroundObjects1Objects = Hashtable.newFrom({"Background": gdjs.GameCode.GDBackgroundObjects1});gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects = Hashtable.newFrom({"Asteroid": gdjs.GameCode.GDAsteroidObjects1});gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects = Hashtable.newFrom({"Asteroid": gdjs.GameCode.GDAsteroidObjects1});gdjs.GameCode.eventsList4 = function(runtimeScene) {
 
 {
 
@@ -735,6 +735,23 @@ gdjs.copyArray(runtimeScene.getObjects("Background"), gdjs.GameCode.GDBackground
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects, gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDBackgroundObjects1Objects, true, runtimeScene, false);
+}if (gdjs.GameCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.GameCode.GDAsteroidObjects1 */
+{for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
+    gdjs.GameCode.GDAsteroidObjects1[i].deleteFromScene(runtimeScene);
+}
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("Asteroid"), gdjs.GameCode.GDAsteroidObjects1);
+
+gdjs.GameCode.condition0IsTrue_0.val = false;
+{
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects, gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDAsteroidObjects1Objects, false, runtimeScene, false);
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 /* Reuse gdjs.GameCode.GDAsteroidObjects1 */
 {for(var i = 0, len = gdjs.GameCode.GDAsteroidObjects1.length ;i < len;++i) {
