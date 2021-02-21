@@ -676,7 +676,7 @@ gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, 5, "GameSpeed");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
-{runtimeScene.getVariables().get("SpeedIncrease").add(10);
+{runtimeScene.getVariables().get("SpeedIncrease").add(4);
 }{gdjs.evtTools.runtimeScene.resetTimer(runtimeScene, "GameSpeed");
 }}
 
@@ -695,7 +695,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTi
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, gdjs.randomInRange(5, 15), "Timer");
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, gdjs.randomInRange(2, 10), "Timer");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 gdjs.GameCode.GDAsteroidObjects1.length = 0;
 
@@ -721,7 +721,7 @@ gdjs.GameCode.eventsList2(runtimeScene);} //End of subevents
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, gdjs.randomInRange(5, 12), "Timer");
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, gdjs.randomInRange(2, 10), "Timer");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 gdjs.GameCode.GDAsteroidObjects1.length = 0;
 
